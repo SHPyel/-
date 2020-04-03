@@ -10,3 +10,14 @@ docker　arm64
 
 github地址　https://github.com/jessestuart/tiller-multiarch
 dockerhub地址　https://hub.docker.com/r/jessestuart/tiller
+
+
+# alpine-glibc　x86_64
+```
+https://github.com/sgerrand/alpine-pkg-glibc
+```
+# alpine-glibc　arm64
+```
+https://github.com/Rjerk/alpine-pkg-glibc
+docker pull sayaoailun/alpine-glibc:2.30-r0
+```
