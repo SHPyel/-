@@ -1,5 +1,7 @@
 helm安装
+```
 使用helm管理应用
+```
 下载helm
 ```
 https://get.helm.sh/helm-v2.16.1-linux-arm64.tar.gz
