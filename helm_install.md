@@ -1,0 +1,8 @@
+helm安装
+使用helm管理应用
+下载helm
+```
+https://get.helm.sh/helm-v2.16.1-linux-arm64.tar.gz
+```
+helm安装git插件
+https://github.com/diwakar-s-maurya/helm-git
