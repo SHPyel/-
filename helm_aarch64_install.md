@@ -100,3 +100,18 @@ helm delete --purge
 
 #
 ```
+# Helm 相关组件及概念
+```
+Helm 包含两个组件，分别是 helm 客户端 和 Tiller 服务器：
+
+helm 是一个命令行工具，用于本地开发及管理chart，chart仓库管理等
+Tiller 是 Helm 的服务端。Tiller 负责接收 Helm 的请求，与 k8s 的 apiserver 交互，根据chart 来生成一个 release 并管理 release
+chart Helm的打包格式叫做chart，所谓chart就是一系列文件, 它描述了一组相关的 k8s 集群资源
+release 使用 helm install 命令在 Kubernetes 集群中部署的 Chart 称为 Release
+Repoistory Helm chart 的仓库，Helm 客户端通过 HTTP 协议来访问存储库中 chart 的索引文件和压缩包
+
+作者：guoweikuang
+链接：https://www.jianshu.com/p/4bd853a8068b
+来源：简书
+
+```
