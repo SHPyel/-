@@ -1,15 +1,15 @@
-helm安装
+# helm安装
 ```
 使用helm管理应用
 ```
-下载helm
+# 下载helm
 ```
 https://get.helm.sh/helm-v2.16.1-linux-arm64.tar.gz
 cp helm tiller /usr/local/bin
 helm version
 tiller -version
 ```
-创建helm-service-account.yaml文件
+# 创建helm-service-account.yaml文件
 ```
 apiVersion: v1
 kind: ServiceAccount
@@ -30,12 +30,12 @@ subjects:
   name: tiller
   namespace: kube-system
 ```
-helm初始化
+# helm初始化
 ```
 kubectl apply -f helm-service-account.yaml
 [root@k8s-master ~]# helm init --service-account tiller
 ```
-验证
+# 验证
 ```
 kubectl get pod -n kube-system -l app=helm
 
@@ -44,12 +44,12 @@ NAME                             READY   STATUS    RESTARTS   AGE
 tiller-deploy-54f7455d59-28dcg   1/1     Running   0          39m
 [root@master ~]#
 ```
-helm安装git插件
+# helm安装git插件
 ```
 将helm release放在git上托管，使用gitlab做helm仓库
 https://github.com/diwakar-s-maurya/helm-git
 ```
-安装
+# 安装
 ```
 helm plugin install https://github.com/diwakar-s-maurya/helm-git
 
@@ -57,17 +57,17 @@ helm plugin install https://github.com/diwakar-s-maurya/helm-git
 NAME    	VERSION	DESCRIPTION
 helm-git	1.0.0  	Let's you use private gitlab repositories easily
 ```
-修改git查看配置
+# 修改git查看配置
  ```
  vim /root/.helm/plugins/helm-git/getfile.sh
  git remote add origin http://114.116.215.218:3000/root/service-config-k8s.git
  ```
-添加helm仓库
+# 添加helm仓库
 ```
  helm repo add jiatui gitlab://root/service-config-k8s:master/helm-jtsys
 输入账户密码
 ```
-查看repo
+# 查看repo
 ```
 [root@master ~]# helm repo list
 NAME  	URL
@@ -76,12 +76,19 @@ local 	http://127.0.0.1:8879/charts
 jiatui	gitlab://root/service-config-k8s:master/helm-jtsys
 [root@master ~]#
 ```
-更新
+# 更新
 ```
 当更新了git版本
 helm repo update
 ```
-安装应用
+# 安装应用
 ```
-
+helm install --name architect jiatui/jtsys --debug --dry-run -f architect-values.yaml
+```
+# helm 命令
+```
+#查看当前有那些chart
+helm list
+#删除chart
+helm delete --purge redis1
 ```
