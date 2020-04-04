@@ -49,7 +49,7 @@ tiller-deploy-54f7455d59-28dcg   1/1     Running   0          39m
 将helm release放在git上托管，使用gitlab做helm仓库
 https://github.com/diwakar-s-maurya/helm-git
 ```
-# 安装
+# 安装git插件
 ```
 helm plugin install https://github.com/diwakar-s-maurya/helm-git
 
@@ -76,7 +76,7 @@ local 	http://127.0.0.1:8879/charts
 jiatui	gitlab://root/service-config-k8s:master/helm-jtsys
 [root@master ~]#
 ```
-# 更新
+# 更新仓库
 ```
 当更新了git版本
 helm repo update
@@ -84,11 +84,19 @@ helm repo update
 # 安装应用
 ```
 helm install --name architect jiatui/jtsys --debug --dry-run -f architect-values.yaml
+helm upgrade architect jiatui/jtsys --debug  -f architect-values.yaml
 ```
 # helm 命令
 ```
-#查看当前有那些chart
+#初始化命令
+helm init
+##List releases of charts
 helm list
+#安装chart
+helm install
 #删除chart
-helm delete --purge redis1
+helm delete --purge 
+    --dry-run
+
+#
 ```
