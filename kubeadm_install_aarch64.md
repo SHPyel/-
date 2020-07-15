@@ -12,6 +12,7 @@
   - hostname : name=qc-app-{{ ansible_default_ipv4.address.split('.')[-2] }}-{{ ansible_default_ipv4.address.split('.')[-1] }}
 
 ```
+
 <p>docker-ce安装</p>
 ```
  step 1: 安装必要的一些系统工具
@@ -26,8 +27,8 @@ yum list docker-ce.x86_64 --showduplicates | sort -r
 Step2: 安装指定版本的Docker-CE:
 sudo yum -y install docker-ce-[VERSION]
 yum install -y docker-ce-19.03.11-3.el7
-``
-`
+```
+
 ```
 #/bin/bash
 url=mirrorgooglecontainers
