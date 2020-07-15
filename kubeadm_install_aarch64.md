@@ -14,17 +14,17 @@
 ```
 <p>docker-ce安装</p>
 ```
-# step 1: 安装必要的一些系统工具
+ step 1: 安装必要的一些系统工具
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-# Step 2: 添加软件源信息
+ Step 2: 添加软件源信息
 sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-# Step 3: 更新并安装Docker-CE
+Step 3: 更新并安装Docker-CE
 sudo yum makecache fast
 安装指定版本的Docker-CE:
-# Step 1: 查找Docker-CE的版本:
-# yum list docker-ce.x86_64 --showduplicates | sort -r
-# Step2: 安装指定版本的Docker-CE:
-# sudo yum -y install docker-ce-[VERSION]
+Step 1: 查找Docker-CE的版本:
+yum list docker-ce.x86_64 --showduplicates | sort -r
+Step2: 安装指定版本的Docker-CE:
+sudo yum -y install docker-ce-[VERSION]
 yum install -y docker-ce-19.03.11-3.el7
 ``
 `
